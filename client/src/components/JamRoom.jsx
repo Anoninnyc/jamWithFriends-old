@@ -32,7 +32,7 @@ class JamRoom extends Component {
   render() {
     return (
       <div id="jamroom">
-        <div>
+        <div className="instrumentContainer">
           {this.props.instrument === 'drums' ? <Drums /> : null}
           {this.props.instrument === 'piano' ? <Piano /> : null}
           {
