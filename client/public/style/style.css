@@ -66,6 +66,12 @@ body {
   height: 100%;
 }
 
+.instrumentContainer {
+  -webkit-box-align:center;
+  -webkit-box-pack:center;
+  display:-webkit-box;
+}
+
 #laser {
   text-align: center;
   width: 100%;
@@ -318,7 +324,7 @@ body {
 
 #twenty {
   position: absolute;
-  
+
   top:-0.5%;
 }
 
@@ -562,7 +568,7 @@ input:invalid {
   position:relative;
   top:30%;
  }
- 
+
  #loginContent {
   position:absolute;
   top:30%;
