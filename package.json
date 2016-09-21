@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "prestart": "npm install",
-    "start": "npm run front-end & npm run back-end",
+    "start": "npm run back-end",
     "front-end": "webpack --watch",
     "back-end": "nodemon server/index.js",
     "prelint": "curl -s https://raw.githubusercontent.com/NerdDiffer/pomander/colossalBubble/bin/install | bash",
