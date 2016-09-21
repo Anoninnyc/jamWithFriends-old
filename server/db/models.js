@@ -1,4 +1,5 @@
-const { Sequelize, sequelize } = require('./connection');
+const Sequelize = require('./connection').Sequelize;
+const sequelize = require('./connection').sequelize;
 
 const users = sequelize.define('user', {
   userName: {
