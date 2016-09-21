@@ -52,7 +52,7 @@ app.use(passport.session());
 const fbConfig = {
   clientID: '1014211832028342',
   clientSecret: 'ac6ae8a72885b86270805337f66e83e6',
-  callbackURL: 'http://localhost:3000/auth/facebook/callback'
+  callbackURL: 'https://secret-wave-65998.herokuapp.com/auth/facebook/callback'
 };
 
 passport.use(new FacebookStrategy(fbConfig, (accessToken, refreshToken, profile, done) => {
