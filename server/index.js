@@ -32,7 +32,8 @@ app.use(cookieParser());
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-//app.use('/dist', express.static(__dirname + '/../dist'));
+app.use('/public', express.static(__dirname + '/../client/public'));
+app.use(express.static(__dirname + '/client/public'))
 
 const pathToStaticDir = path.resolve(__dirname, '..', 'client/public');
 
