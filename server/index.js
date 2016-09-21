@@ -472,7 +472,7 @@ app.get('/getprivaterooms', (req, res) => {
     res.send(privateRooms.map(room => room.url));
   });
 });
-
+//
 app.get('*', (req, res) => {
   console.log('req.session', req.session);
   const pathToIndex = path.join(pathToStaticDir, 'index.html');
