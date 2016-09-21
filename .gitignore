@@ -17,7 +17,6 @@ pids
 coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
-client/public/*.js
 awsBuilds/
 
 # Dependency directorys
