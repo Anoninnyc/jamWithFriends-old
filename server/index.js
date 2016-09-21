@@ -32,6 +32,7 @@ app.use(cookieParser());
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+//app.use('/dist', express.static(__dirname + '/../dist'));
 
 const pathToStaticDir = path.resolve(__dirname, '..', 'client/public');
 
@@ -471,11 +472,11 @@ app.get('/getprivaterooms', (req, res) => {
   });
 });
 
-app.get('*', (req, res) => {
-  console.log('req.session', req.session);
-  const pathToIndex = path.join(pathToStaticDir, 'index.html');
-  res.status(200).sendFile(pathToIndex);
-});
+// app.get('*', (req, res) => {
+//   console.log('req.session', req.session);
+//   const pathToIndex = path.join(pathToStaticDir, 'index.html');
+//   res.status(200).sendFile(pathToIndex);
+// });
 
 /* Kick off server */
 const port = process.env.PORT || 3000;
