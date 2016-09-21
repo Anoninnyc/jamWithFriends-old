@@ -1,4 +1,4 @@
-import { Sequelize, sequelize } from './connection';
+const { Sequelize, sequelize } = require('./connection');
 
 const users = sequelize.define('user', {
   userName: {
