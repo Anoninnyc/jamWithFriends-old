@@ -146,7 +146,7 @@ io.on('connection', socket => {
         const socketsInRoom = rooms[roomId];
         const id = socket.id.slice(2);
         // check to make sure peer is in room and get index of peer
-        for (let i = 0; i < socketsInRoom.length; i++) {
+        for (var i = 0; i < socketsInRoom.length; i++) {
           if (socketsInRoom[i].peerId === id) {
             socketsInRoom.splice(i, 1);
             socket.leave(roomId);
@@ -174,7 +174,7 @@ io.on('connection', socket => {
     const room = rooms[data.roomId];
     if (room !== undefined) {
       // check to make sure peer is in room and get index of peer
-      for (let i = 0; i < room.length; i++) {
+      for (var i = 0; i < room.length; i++) {
         if (room[i].peerId === data.id) {
           room.splice(i, 1);
           socket.leave(data.roomId);
@@ -245,7 +245,7 @@ io.on('connection', socket => {
   socket.on('select instrument', data => {
     const room = rooms[data.roomId];
     // update instrument of user
-    for (let i = 0; i < room.length; i++) {
+    for (var i = 0; i < room.length; i++) {
       if (room[i].peerId === data.id) {
         room[i].instrument = data.instrument;
         const updateRoom = JSON.stringify(room);
@@ -267,7 +267,7 @@ io.on('connection', socket => {
   function getRoomsInfo(roomObj) {
     const roomNames = Object.keys(roomObj);
     const container = [];
-    for (let i = 0; i < roomNames.length; i++) {
+    for (var i = 0; i < roomNames.length; i++) {
       if (!privRooms[roomNames[i]]) {
         container.push({
           roomName: roomNames[i],
