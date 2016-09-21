@@ -40,7 +40,7 @@ app.use(express.static(pathToStaticDir, { redirect: false }));
 //
 /* Auth */
 app.use(expressSession({
-  secret: process.env.sessions_secret,
+  secret: 'keyboardCat',
   resave: true,
   saveUninitialized: true
 }));
@@ -48,9 +48,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const fbConfig = {
-  clientID: process.env.client_Id,
-  clientSecret: process.env.client_Secret,
-  callbackURL: process.env.callbackURL
+  clientID: '1014211832028342',
+  clientSecret: 'ac6ae8a72885b86270805337f66e83e6',
+  callbackURL: 'http://localhost:3000/auth/facebook/callback'
 };
 
 passport.use(new FacebookStrategy(fbConfig, (accessToken, refreshToken, profile, done) => {
