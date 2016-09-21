@@ -36,7 +36,7 @@ const pathToStaticDir = path.resolve(__dirname, '..', 'client/public');
 
 app.use(express.static(pathToStaticDir));
 app.use(express.static(pathToStaticDir, { redirect: false }));
-
+//
 /* Auth */
 app.use(expressSession({
   secret: process.env.sessions_secret,
