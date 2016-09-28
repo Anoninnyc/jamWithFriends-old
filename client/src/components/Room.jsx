@@ -39,28 +39,6 @@ class Room extends React.Component {
     // event listener for keypress
     window.addEventListener('keypress', this.handleKeypress);
     this.props.socket.emit('add as listener', this.props.params.roomId);
-
-
-    $.get("/getUserInfo", (resp, err) => {
-    // console.log('this the the resp to userloggedintomakeinst', resp);
-      if (resp[0] === null) {
-     // console.log('youre not logged in!');
-      } else {
-        this.props.logIn(JSON.stringify(resp[0]), resp[1]);
-      }
-    });
-
-    $.get("/fbLoggedIn", (response, err) => {
-      if (response !== "false") {
-        console.log(response[0], typeof response[0], 'here!!!');
-        this.props.logIn(response[0], response[1]);
-      } else {
-        console.log('not logged to fb');
-      }
-    });
-
-
-
   }
 
   componentWillUnmount() {

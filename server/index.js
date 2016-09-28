@@ -217,7 +217,7 @@ io.on('connection', socket => {
     console.log('this is a brand new instrument', i, i.A);
     instruments.create({
       userName: i.userName,
-      instrumentName: i.name,
+      instrumentName: i.instrumentName,
       A: i.A,
       S: i.S,
       D: i.D,

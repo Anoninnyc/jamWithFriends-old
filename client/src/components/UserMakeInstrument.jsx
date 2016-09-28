@@ -124,7 +124,7 @@ class UserMakeInstrument extends Component {
   makeInstrument() {
     const name = this.refs.instName.getValue();
     const currentInMemObj = this.state.inMemObject;
-    currentInMemObj.name = name;
+    currentInMemObj.instrumentName = name;
     currentInMemObj.userName = this.props.user;
     let empty = true;
 
