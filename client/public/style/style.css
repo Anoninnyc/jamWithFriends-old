@@ -694,3 +694,7 @@ div#appName {
 section.createRoom {
   top: -50px;
 }
+
+img.defImages {
+  width: 100%;
+}
