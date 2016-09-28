@@ -7,11 +7,6 @@ import Paper from 'material-ui/Paper';
 import { showErrorMessage, paperStyle } from '../utils/helperFunctions';
 
 class Signup extends Component {
-//
-  constructor({props}){
-    super({props});
-  }
-
   helperSignup() {
     const user = $('#UserNameSignUp').val();
     const pass = $('#UserNamePass').val();
@@ -24,7 +19,7 @@ class Signup extends Component {
     } else {
       $.post("/signup", { user, pass }, resp => {
         if (resp === "SuccessSignup") {
-          logIn(user, []);
+          this.props.logIn(user, []);
           this.context.router.push('/');
         } else {
           showErrorMessage("#SIMessages", 'Username Taken', "badSignUp");
