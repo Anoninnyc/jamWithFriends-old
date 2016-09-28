@@ -215,19 +215,7 @@ io.on('connection', socket => {
 
   socket.on('newInstCreated', i => {
     console.log('this is a brand new instrument', i, i.A);
-    instruments.create({
-      userName: i.userName,
-      instrumentName: i.instrumentName,
-      A: i.A,
-      S: i.S,
-      D: i.D,
-      F: i.F,
-      G: i.G,
-      H: i.H,
-      J: i.J,
-      K: i.K,
-      L: i.L,
-    }).then(instrumentEntry => {
+    instruments.create(i).then(instrumentEntry => {
       console.log(instrumentEntry.dataValues, ' got entered');
     });
   });
