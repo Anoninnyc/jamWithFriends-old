@@ -344,14 +344,14 @@ class CreateOrJoin extends Component {
               ?
                 <div>
                   This room is open to the public for anyone to join.
-                    It will be displayed in the open room table below.
+                    It will be displayed in the "Open Room" table below.
                     If you can't think of a good room name,
-                     just click "Create Room broh" and we will provide you with a random room name.
+                     just click "Create Public Room" and we'll provide you with a random room name.
                 </div>
               :
                 <div>
-                Noone will be able to join this room unless you give them the link personally.
-                  We will store the url created for you and you can reuse the room as long as you are signed in.
+                No one will be able to join this room unless you give them the link personally.
+                  We'll store the URL, and you can reuse the room so long as you're signed in.
                     Name it anything you want!
                 </div>
             }
