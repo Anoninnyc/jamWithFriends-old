@@ -10,8 +10,8 @@ class Signup extends Component {
 
   constructor({login}){
     super({login});
-
   }
+
   helperSignup() {
     const user = $('#UserNameSignUp').val();
     const pass = $('#UserNamePass').val();
@@ -24,7 +24,7 @@ class Signup extends Component {
     } else {
       $.post("/signup", { user, pass }, resp => {
         if (resp === "SuccessSignup") {
-          this.props.logIn(user, []);
+          logIn(user, []);
           this.context.router.push('/');
         } else {
           showErrorMessage("#SIMessages", 'Username Taken', "badSignUp");
