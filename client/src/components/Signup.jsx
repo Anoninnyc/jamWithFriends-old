@@ -8,8 +8,8 @@ import { showErrorMessage, paperStyle } from '../utils/helperFunctions';
 
 class Signup extends Component {
 //
-  constructor({login}){
-    super({login});
+  constructor({props}){
+    super({props});
   }
 
   helperSignup() {

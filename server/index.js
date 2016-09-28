@@ -292,7 +292,7 @@ app.post('/login', (req, res) => {
   }).then(person => {
     if (person[0]===undefined) {
       console.log('BadLogin');
-      res.send("");
+      res.status(401).send("");
     } else {
       console.log(person[0], 'Person[0]!!!');
       const hash = bcrypt.hashSync(req.body.pass, person[0].dataValues.salt);
@@ -318,7 +318,7 @@ app.post('/login', (req, res) => {
             });
         } else {
           console.log('BadLogin');
-          res.send("");
+          res.status(401).send("");
         }
       });
     }
@@ -333,7 +333,7 @@ app.post('/signup', (req, res) => {
   }).then(user => {
     if (user.length > 0) {
       console.log('this is req.sesion', req.session);
-      res.send('UserAlreadyExists');
+      res.status(400).send('UserAlreadyExists');
     } else {
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(req.body.pass, salt);
@@ -344,7 +344,7 @@ app.post('/signup', (req, res) => {
       }).then(entry => {
         console.log(entry.dataValues, ' got entered');
         req.session.userName = req.body.user;
-        res.send('SuccessSignup');
+        res.status(200).send('SuccessSignup');
       });
     }
   });
@@ -372,7 +372,7 @@ app.get("/getUserInfo", (req, res) => {
            userInstruments.map(a => a.dataValues)
         )).then(userInstrumentsList => {
           console.log(person, userInstrumentsList, 'userInsts');
-          res.send([person, userInstrumentsList]);
+          res.status(200).send([person, userInstrumentsList]);
         });
     });
   } else {
@@ -381,7 +381,7 @@ app.get("/getUserInfo", (req, res) => {
            userInstruments.map(a => a.dataValues)
         )).then(userInstrumentsList => {
           console.log(person, userInstrumentsList, 'userInsts');
-          res.send([person, userInstrumentsList]);
+          res.status(200).send([person, userInstrumentsList]);
         });
   }
 });
@@ -395,9 +395,7 @@ app.get("/fbLoggedIn", (req, res) => {
       }
     }).then(
       people => {
-        console.log('people on 406', people);
         const person = people.dataValues.userName;
-        console.log('person!!!', person);
         instruments.findAll({
           where: {
             userName: person
@@ -406,11 +404,11 @@ app.get("/fbLoggedIn", (req, res) => {
           userInstruments => (
             userInstruments.map(a => a.dataValues)
           )).then(userInstrumentsList => {
-            res.send([person, userInstrumentsList]);
+            res.status(200).send([person, userInstrumentsList]);
           });
       });
   } else {
-    res.send("false");
+    res.status(401).send("false");
   }
 });
 
