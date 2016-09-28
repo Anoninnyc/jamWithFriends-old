@@ -34,6 +34,8 @@ const LandingPage = () => (
       <p id="explainer">Jam out with your friends useing virtual instruments over a lightnight-fast WebRTC connection</p>
       <section className="divider">
         <Divider />
+      </section>
+      <section className="createRoom">
         <Link to="/createorjoin">
           <RaisedButton
             label="Start"
@@ -41,8 +43,6 @@ const LandingPage = () => (
             labelStyle={{ fontSize: 22 }}
           />
         </Link>
-      </section>
-      <section className="createRoom">
       </section>
     </Paper>
   </div>

@@ -4,24 +4,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import { instruments } from '../instruments/store';
 
-
-
-const testfunction=(inst)=>{
-
-  const preMade=['drums','laser','laserbells','piano'];
-  if (preMade.indexOf(inst)<0){
-    return `/assets/kick.svg`;
-  } else {
-    return `/assets/${inst}.svg`;
-   }
-}
-
-
-
-
-
-
-
 const SelectInstrument = ({ handleSelect, handleClick, size, ownInstrument, extraInstruments }) => {
   size = size || 'normal';
   const fixCarouselHeight = () => { window.dispatchEvent(new Event('resize')); };
@@ -73,9 +55,9 @@ const SelectInstrument = ({ handleSelect, handleClick, size, ownInstrument, extr
           instruments.concat(extraInstruments.map(a => (
              `Your Instrument: ${a.instrumentName||a.name}`
           ))).map((instrument, index) => (
-          instrument[0]==="Y"?<h1 key={index}>{instrument}</h1>:
+          instrument[0]==="Y"?<h1 key={index}>{instrument+ "test"}</h1>:
             <img
-              src={`/assets/${testfunction(instrument)}.svg`}
+              src={`/assets/${instrument}.svg`}
               alt={instrument}
               onLoad={fixCarouselHeight}
               key={index}
