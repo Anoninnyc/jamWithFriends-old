@@ -7,7 +7,7 @@ import Paper from 'material-ui/Paper';
 import { showErrorMessage, paperStyle } from '../utils/helperFunctions';
 
 class Signup extends Component {
-
+//
   constructor({login}){
     super({login});
   }
