@@ -690,3 +690,7 @@ div#appName {
   font-family: fantasy;
   color: orange;
 }
+
+section.createRoom {
+  top: -50px;
+}

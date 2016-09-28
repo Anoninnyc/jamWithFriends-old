@@ -55,7 +55,7 @@ const SelectInstrument = ({ handleSelect, handleClick, size, ownInstrument, extr
           instruments.concat(extraInstruments.map(a => (
              `Your Instrument: ${a.instrumentName||a.name}`
           ))).map((instrument, index) => (
-          instrument[0]==="Y"?<h1 key={index}>{instrument+ "test"}</h1>:
+          instrument[0]==="Y"?<div><h1 key={index}>{instrument+ "test"}</h1><img src="http://go.nasa.gov/1VK1HjL"></img></div>:
             <img
               src={`/assets/${instrument}.svg`}
               alt={instrument}
