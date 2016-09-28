@@ -7,6 +7,11 @@ import Paper from 'material-ui/Paper';
 import { showErrorMessage, paperStyle } from '../utils/helperFunctions';
 
 class Signup extends Component {
+
+  constructor({login}){
+    super({login});
+
+  }
   helperSignup() {
     const user = $('#UserNameSignUp').val();
     const pass = $('#UserNamePass').val();
@@ -17,7 +22,7 @@ class Signup extends Component {
     } else if (/\W/.test(user) === true || /\W/.test(pass) === true) {
       showErrorMessage("#SIMessages", 'Letters and Numbers Only!', "regexError");
     } else {
-      $.post("/signup", { user, pass }, (resp) => {
+      $.post("/signup", { user, pass }, resp => {
         if (resp === "SuccessSignup") {
           this.props.logIn(user, []);
           this.context.router.push('/');

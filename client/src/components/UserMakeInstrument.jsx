@@ -95,10 +95,7 @@ class UserMakeInstrument extends Component {
 
   mapThat() {
     console.log(this.state.noteValue);
-    const par1 = this.state.noteValue;
-    const par2 = this.state.octaveValue;
-    const par3 = this.state.PDValue;
-    const par4 = this.state.typeValue;
+    [par1, par2, par3, par4] = [this.state.noteValue, this.state.octaveValue, this.state.PDValue, this.state.typeValue];
     const key = this.state.keyValue;
     const inst = "N/A";
     const currentInMemObj = this.state.inMemObject;
@@ -134,20 +131,11 @@ class UserMakeInstrument extends Component {
         empty = false;
       }
     }
-    // in case something breaks --- this was refactored into the above for loop:
 
-    // for (const key in currentInMemObj) {
-    //   if (key.length === 1) {
-    //    // console.log('a key exists!');
-    //     empty = false;
-    //   }
-    // }
-    if (name.length === 0) {
+    if (!name.length) {
       showErrorMessage("#nameInstErrMessage", 'Pls name your instrument', 'npo');
-    //  console.log('you need to name it something!');
     } else if (empty) {
       showErrorMessage("#nameInstErrMessage", 'Pls map some keys', 'npi');
-     // console.log('youve not mapped any keys!!!');
     } else if (/\W/.test(name)===true) {
       showErrorMessage("#nameInstErrMessage", 'Letters and numbers only please!', 'regexErr');
     } else {
