@@ -241,6 +241,7 @@ class UserMakeInstrument extends Component {
       <div id="roomContainer">
         <div id="UserMakeInstrumentRoom">
           <Paper
+            id="uMIPaper"
             style={paperStyle}
             zDepth={3}
           >
