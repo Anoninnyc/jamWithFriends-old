@@ -8,13 +8,19 @@ module.exports = function(grunt) {
         }
       }
     },
+
+    shell: {
+      addAndDeploy: {
+        command: mess => ['webpack','grunt uglify' , 'git add .', 'git commit -m' + mess, 'git push heroku master -f'].join('&&')
+      }
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-shell')
   
 
-  grunt.registerTask('min', ['uglify']);
-
+  //grunt shell:addAndDeploy:Message_Here
 
   grunt.registerTask('testGrunt', () => {
     console.log('testing grunt!')
