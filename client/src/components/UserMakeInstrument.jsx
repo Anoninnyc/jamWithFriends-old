@@ -94,8 +94,11 @@ class UserMakeInstrument extends Component {
   }
 
   mapThat() {
-    console.log(this.state.noteValue);
-    [par1, par2, par3, par4] = [this.state.noteValue, this.state.octaveValue, this.state.PDValue, this.state.typeValue];
+   console.log(this.state.noteValue);
+    const par1 = this.state.noteValue
+    const par2 = this.state.octaveValue
+    const par3 = this.state.PDValue;
+    const par4 =  this.state.typeValue;
     const key = this.state.keyValue;
     const inst = "N/A";
     const currentInMemObj = this.state.inMemObject;
