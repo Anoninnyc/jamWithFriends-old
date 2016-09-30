@@ -21,7 +21,7 @@ const io = socketIO.listen(server);
 
 /* DB  */
 
-
+ 
 const users = require('./db/models').users;
 const instruments = require('./db/models').instruments;
 const PrivateRooms = require('./db/models').PrivateRooms;
@@ -33,11 +33,11 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 //app.use('/public', express.static(__dirname + '/../client/public'/*, {maxAge:'1d'}*/));
-app.use(express.static(__dirname + '/client/public'), {maxAge:'1d'});
+//app.use(express.static(__dirname + '/client/public'));
 
 const pathToStaticDir = path.resolve(__dirname, '..', 'client/public');
 
-app.use(express.static(pathToStaticDir));
+app.use(express.static(pathToStaticDir/*, {maxAge:"1d"}*/));
 app.use(express.static(pathToStaticDir, { redirect: false }));
 //
 /* Auth */
