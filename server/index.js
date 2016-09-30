@@ -37,7 +37,7 @@ app.use(bodyParser.json());
 
 const pathToStaticDir = path.resolve(__dirname, '..', 'client/public');
 
-app.use(express.static(pathToStaticDir/*, {maxAge:"1d"}*/));
+app.use(express.static(pathToStaticDir, {maxAge:"1d"}));
 app.use(express.static(pathToStaticDir, { redirect: false }));
 //
 /* Auth */
