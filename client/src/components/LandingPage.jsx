@@ -15,7 +15,7 @@ const paperStyle = {
   position: 'absolute',
   left: '50%',
   height: '40%',
-  width: '40%',
+  width: '40%' ,
   transform: 'translate(-50%, 40%)',
   backgroundColor: 'rgba(68, 69, 69, 0.7)',
   borderRadius: 10
