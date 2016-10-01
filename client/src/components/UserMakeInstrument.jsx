@@ -318,15 +318,14 @@ class UserMakeInstrument extends Component {
               <div id="nameInstErrMessage" />
               <RaisedButton label="Make the instrument" style={{ postion: "absolute", top: "50%" }} onClick={this.makeInstrument} /><br />
             </div>
-            <div id="goToCreate">
+            
              <Link to="/createorjoin">
-            <RaisedButton
+            <RaisedButton id="goToCreate"
               label="Start Jamming!"
-              style={buttonStyles}
-              labelStyle={{ fontSize: 22 }}
+              style={{ postion: "absolute", top: "50%" }}
             />
             </Link>
-            </div>
+           
             <h2 className="step">Click your instrument to play!</h2>
             <div id="testPiano" onClick={this.addKeypress} >
               <UserOwnInstrument />
