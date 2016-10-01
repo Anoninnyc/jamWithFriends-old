@@ -1,6 +1,7 @@
 // Tones
 import React, { Component } from 'react';
 import { MembraneSynth } from "tone";
+import { Link } from 'react-router';
 // Components
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
