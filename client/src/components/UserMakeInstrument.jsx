@@ -13,7 +13,7 @@ import UserOwnInstrument from './UserOwnInstrument';
 
 
 // Utils
-import { types, animateInst, paperStyle, keys, notes, octaves, pd, showErrorMessage, mapIdsToKeys, mapKeysToIds, envelopeValue, mapPianoKeyPress } from '../utils/helperFunctions';
+import { types, animateInst, paperStyle, keys, notes, octaves, pd, showErrorMessage, mapIdsToKeys, mapKeysToIds, envelopeValue, mapPianoKeyPress, buttonStyles } from '../utils/helperFunctions';
 
 class UserMakeInstrument extends Component {
 

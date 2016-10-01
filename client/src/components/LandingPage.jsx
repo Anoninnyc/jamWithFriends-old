@@ -7,14 +7,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 
-const buttonStyles = {
-  color: '#6F8695',
-  width: 120,
-  height: 30,
-  position: 'absolute',
-  top: '50%',
-  transform: 'translate(-50%, -50%)'
-};
+import {buttonStyles} from '../utils/helperFunctions';
+
+
 
 const paperStyle = {
   position: 'absolute',

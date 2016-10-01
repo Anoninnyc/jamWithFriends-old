@@ -27,6 +27,15 @@ const mapIdsToKeys = {
   '#9': 'L',
 };
 
+const buttonStyles = {
+  color: '#6F8695',
+  width: 120,
+  height: 30,
+  position: 'absolute',
+  top: '50%',
+  transform: 'translate(-50%, -50%)'
+};
+
 const mapKeysToIds = {
   'A': '#1',
   'S': '#2',
@@ -187,4 +196,5 @@ module.exports = {
   teens,
   drumParts,
   types,
+  buttonStyles,
 };
