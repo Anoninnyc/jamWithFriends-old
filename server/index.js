@@ -333,7 +333,7 @@ app.post('/signup', (req, res) => {
   }).then(user => {
     if (user.length > 0) {
       console.log('this is req.sesion', req.session);
-      res.status(400).send('UserAlreadyExists');
+      res.send('UserAlreadyExists');
     } else {
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(req.body.pass, salt);
