@@ -323,6 +323,7 @@ class UserMakeInstrument extends Component {
               style={buttonStyles}
               labelStyle={{ fontSize: 22 }}
             />
+            </Link>
             <h2 className="step">Click your instrument to play!</h2>
             <div id="testPiano" onClick={this.addKeypress} >
               <UserOwnInstrument />
