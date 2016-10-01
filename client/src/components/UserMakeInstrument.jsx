@@ -46,10 +46,6 @@ class UserMakeInstrument extends Component {
 
 
   componentDidMount() {
-    $('.sampleSound').click(() => {
-      this.sampleSound();
-    });
-
     $.get("/getUserInfo", (resp, err) => {
       console.log('this the the resp to userloggedintomakeinst', resp);
       if (resp[0] === null) {
@@ -317,14 +313,15 @@ class UserMakeInstrument extends Component {
               <br />
               <div id="nameInstErrMessage" />
               <RaisedButton label="Make the instrument" style={{ postion: "absolute", top: "50%" }} onClick={this.makeInstrument} /><br />
-            </div>
-            
-             <Link to="/createorjoin">
+                <Link to="/createorjoin">
             <RaisedButton id="goToCreate"
               label="Start Jamming!"
               style={{ postion: "absolute", top: "50%" }}
             />
             </Link>
+            </div>
+            
+           
            
             <h2 className="step">Click your instrument to play!</h2>
             <div id="testPiano" onClick={this.addKeypress} >
