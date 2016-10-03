@@ -388,7 +388,7 @@ let passport=req.session.passport!==undefined?req.session.passport.user:req.sess
         userInstruments => (
            userInstruments.map(a => a.dataValues)
         )).then(userInstrumentsList => {
-          //console.log(person, userInstrumentsList, 'userInsts');
+          console.log( userInstrumentsList, ':userInsts we found!!!!!!!!!!');
           res.status(200).send([fbUserName, userInstrumentsList]);
         });
     });
