@@ -45,8 +45,8 @@ class UserMakeInstrument extends Component {
   }
 
 
-  componentDidMount() {
-
+  componentWillMount() {
+    
      $.get("/isLoggedIn", (resp, err) => {
       if (resp==="continue"){
         console.log('you should be here!!!')

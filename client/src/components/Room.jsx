@@ -181,6 +181,7 @@ class Room extends React.Component {
   }
 
   selectInstrument(index) {
+    console.log("logging this to reduce parsing!",this.props.userInstruments);
     // this.setState({ instrument: instruments[index] });
     this.setState({
       mapping: this.props.userInstruments.map(a => (
@@ -200,7 +201,7 @@ class Room extends React.Component {
          `Your Instrument: ${a.instrumentName||a.name}`
       )))[index]
     });
-    console.log(instruments[index]);
+    //console.log(instruments[index]);
     if (this.state.connected) {
       this.props.socket.emit('select instrument', {
         roomId: this.props.params.roomId,
@@ -214,7 +215,7 @@ class Room extends React.Component {
 
   render() {
     const uiNames=this.props.userInstruments.map(a => (a.instrumentName));
-    console.log('what you want', uiNames, 'tsi', 'current instrument', this.state.instrument);
+    //console.log('what you want', uiNames, 'tsi', 'current instrument', this.state.instrument);
 
     return (
       <div>
