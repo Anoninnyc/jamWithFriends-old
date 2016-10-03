@@ -291,7 +291,7 @@ app.get("/makeInstrument",(req,res)=>{
   if (passport===undefined && req.session.userName===undefined) {
     res.redirect("/login");
   } else {
-    res.end();
+     res.send('<!DOCTYPE html>' + React.renderToString(<RoutingContext {...renderProps}/>))
   }
 });
 
