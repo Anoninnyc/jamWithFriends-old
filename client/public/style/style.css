@@ -617,7 +617,6 @@ input:invalid {
 
 
 div#deleteKey {
-  position: relative;
   left: 140px;
   top: -35px;
   text-align:center;

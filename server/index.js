@@ -13,7 +13,6 @@ const expressSession=require('express-session');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 require("dotenv").config();
-///////////////////////////////////////////
 
 /* Init */
 const app = express();
@@ -70,8 +69,8 @@ passport.use(new FacebookStrategy(fbConfig, (accessToken, refreshToken, profile,
           facebookId: profile.id,
           token: accessToken,
         }).then(entry => {
-          console.log('this is entry for a newly added user', entry.dataValues.id);
-          console.log(entry.dataValues, ' got entered', entry);
+          //console.log('this is entry for a newly added user', entry.dataValues.id);
+         // console.log(entry.dataValues, ' got entered', entry);
           return done(null, entry.dataValues.id);
         });
       }
@@ -87,7 +86,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  console.log('this is id in deserialize', id);
+  //console.log('this is id in deserialize', id);
   users.findAll({ where: { id } })
     .then(found => {
       const values = found[0].dataValues;
@@ -295,7 +294,7 @@ app.post('/login', (req, res) => {
       console.log('BadLogin');
       res.status(401).send("");
     } else {
-      console.log(person[0], 'Person[0]!!!');
+      //console.log(person[0], 'Person[0]!!!');
       const hash = bcrypt.hashSync(req.body.pass, person[0].dataValues.salt);
 
       users.findAll({
@@ -313,7 +312,7 @@ app.post('/login', (req, res) => {
             userInstruments => (
                userInstruments.map(a => a.dataValues)
             )).then(userInstrumentsList => {
-              console.log("succ logged in", userInstrumentsList);
+              //console.log("succ logged in", userInstrumentsList);
               req.session.userName = req.body.user;
               res.send(userInstrumentsList);
             });
@@ -377,11 +376,12 @@ app.get("/getUserInfo", (req, res) => {
   const person=req.session.userName||req.session.passport;
   console.log("person:",person,"req.session:", req.session);
 let passport=req.session.passport!==undefined?req.session.passport.user:req.session.passport;
+
   if (passport) {
-    console.log(" *************************passport statement line FROM getuserINFO");
+    console.log(" *************************passport statement line FROM getuserINFO passport:", passport,"person:", person);
 
     users.findOne({ where: { id: person.user } }).then(fbUser => {
-      console.log('tryingtoFind', fbUser);
+      //console.log('tryingtoFind', fbUser);
       const fbUserName= fbUser.dataValues.userName;
       instruments.findAll({ where: { userName: fbUserName } }).then(
         userInstruments => (
