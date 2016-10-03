@@ -159,7 +159,7 @@ const pd = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7];
 const types = ["sine", "square", "sawtooth", "triangle"];
 
 
-function dispay(par){
+function display(par){
 
   return par.map(
     type => (
