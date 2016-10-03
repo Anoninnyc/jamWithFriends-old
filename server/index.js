@@ -362,8 +362,8 @@ app.get('/auth/facebook/callback',
 app.get("/getUserInfo", (req, res) => {
   const person=req.session.userName||req.session.passport;
   console.log("person:",person,"req.session:", req.session);
-
-  if (req.session.passport.user) {
+let passport=req.session.passport!==undefined?req.session.passport.user:req.session.passport;
+  if (passport) {
     users.findOne({ where: { id: person.user } }).then(fbUser => {
       console.log('tryingtoFind', fbUser);
       const fbUserName= fbUser.dataValues.userName;
