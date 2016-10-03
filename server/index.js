@@ -392,7 +392,9 @@ if (req.session.passport.user===undefined && req.session.userName===undefined){
 });
 
 app.get('/isLoggedIn', (req,res)=>{
-  if (req.session.passport.user===undefined && req.session.userName===undefined){
+console.log(req.session, "REQ.SESSION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+  if (req.session.passport===undefined && req.session.userName===undefined){
+
     console.log('*********************** this person should not be able to acces UMI');
     res.send(null);
   } else {
