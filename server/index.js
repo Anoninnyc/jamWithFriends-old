@@ -363,8 +363,6 @@ app.get("/getUserInfo", (req, res) => {
   const person=req.session.userName||req.session.passport;
   console.log("person:",person,"req.session:", req.session,"req.session.passport:", req.session.passport,"req.session.user:",req.session.user, 'person!!!');
 
-  if (req.session.passport===
-
   if (req.session.passport) {
     users.findOne({ where: { id: person.user } }).then(fbUser => {
       console.log('uh oh ', fbUser);
