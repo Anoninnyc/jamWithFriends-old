@@ -364,13 +364,12 @@ app.get("/getUserInfo", (req, res) => {
   console.log("person:",person,"req.session:", req.session,"req.session.passport:", req.session.passport,"req.session.user:",req.session.user, 'person!!!');
 
 if (req.session.passport.user===undefined && req.session.userName===undefined){
-  console.log('*********************** this person should be able to acces UMI');
   res.send([null]);
 }
 
   if (req.session.passport.user) {
     users.findOne({ where: { id: person.user } }).then(fbUser => {
-      //console.log('uh oh ', fbUser);
+      console.log('tryingtoFind', fbUser);
       const fbUserName= fbUser.dataValues.userName;
       instruments.findAll({ where: { userName: fbUserName } }).then(
         userInstruments => (

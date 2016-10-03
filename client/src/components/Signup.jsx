@@ -18,6 +18,7 @@ class Signup extends Component {
       showErrorMessage("#SIMessages", 'Letters and Numbers Only!', "regexError");
     } else {
       $.post("/signup", { user, pass }, resp => {
+        console.log(resp, "resp to signup!!")
         if (resp === "SuccessSignup") {
           this.props.logIn(user, []);
           this.context.router.push('/');
