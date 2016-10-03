@@ -35,6 +35,7 @@ class Room extends React.Component {
   componentDidMount() {
     connectionManager.setup(this.props.params.roomId);
     connectionManager.onStatusChange(this.updateConnection);
+    console.log("tpui",this.props.userInstruments);
     // this will update uniue user instruments with those made in the same session.
     // event listener for keypress
     window.addEventListener('keypress', this.handleKeypress);
