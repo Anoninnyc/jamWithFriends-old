@@ -388,11 +388,12 @@ app.get("/getUserInfo", (req, res) => {
 
 app.get('/isLoggedIn', (req,res)=> {
 console.log(req.session, "REQ.SESSION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-  if (req.session.passport===undefined && req.session.userName===undefined) {
+let passport=req.session.passport?req.session.passport.user:req.session.passport;
+  if (passport===undefined && req.session.userName===undefined) {
     console.log('*********************** this person should not be able to acces UMI');
     res.send(null);
   } else {
-    console.log('*********************** this person should NOT be able to acces UMI');
+    console.log('*********************** this person should be able to acces UMI');
     res.send("continue");
   }
 })
