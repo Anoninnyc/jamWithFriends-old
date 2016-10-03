@@ -282,7 +282,7 @@ app.get('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
-app.get("/something",(req,res)=>{
+app.get("/makeInstrument",(req,res)=>{
   res.redirect("/login");
 })
 
