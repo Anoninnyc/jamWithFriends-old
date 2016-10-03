@@ -14,9 +14,6 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 require("dotenv").config();
 ///////////////////////////////////////////
-const renderToString= require('react-dom/server').renderToString;
-const match= require('react-router').match;
-const RouterContext= require('react-router').RouterContext;
 
 /* Init */
 const app = express();
@@ -284,15 +281,6 @@ app.get('/logout', (req, res) => {
   req.logout();
   console.log('mysession after logout', req.session);
   res.sendStatus(200);
-});
-
-app.get("/makeInstrument",(req,res)=>{
-  let passport=req.session.passport?req.session.passport.user:req.session.passport;
-  if (passport===undefined && req.session.userName===undefined) {
-    res.redirect("/login");
-  } else {
-     res.send('<!DOCTYPE html>' + React.renderToString(<RoutingContext {...renderProps}/>))
-  }
 });
 
 
