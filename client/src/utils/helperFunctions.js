@@ -13,6 +13,10 @@ function showErrorMessage(appendTo, message, id) {
     });
 }
 
+
+
+
+
 // UserMakeInstrument Piano & regular Piano.
 
 const mapIdsToKeys = {
@@ -142,7 +146,7 @@ const mapDrumIDToSounds = {
 
 const drumParts=["urC", "nextC", "brDrum", "rsDrum", "lsDrum", "tomDrum", "urCymbal", "kickDrum"];
 
-// UserMakeInstrument Reference Arrays
+// UserMakeInstrument Reference 
 
 const keys = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
 
@@ -153,6 +157,17 @@ const octaves = [1, 2, 3, 4, 5, 6, 7];
 const pd = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7];
 
 const types = ["sine", "square", "sawtooth", "triangle"];
+
+
+function dispay(par){
+
+  return par.map(
+    type => (
+      <MenuItem key={type} value={type} primaryText={type} />
+     )
+  )
+
+}
 
 // paperStyle
 const paperStyle = {
@@ -197,4 +212,5 @@ module.exports = {
   drumParts,
   types,
   buttonStyles,
+  display,
 };

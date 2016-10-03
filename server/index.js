@@ -213,9 +213,9 @@ io.on('connection', socket => {
     io.to(`/#${answer.to}`).emit('answer', answer);
   });
 
-  socket.on('newInstCreated', i => {
-    console.log('this is a brand new instrument', i, i.A);
-    instruments.create(i).then(instrumentEntry => {
+  socket.on('newInstCreated', instrument => {
+    console.log('this is a brand new instrument', instrument, i.A);
+    instruments.create(instrument).then(instrumentEntry => {
       console.log(instrumentEntry.dataValues, ' got entered');
     });
   });

@@ -13,7 +13,7 @@ import UserOwnInstrument from './UserOwnInstrument';
 
 
 // Utils
-import { types, animateInst, paperStyle, keys, notes, octaves, pd, showErrorMessage, mapIdsToKeys, mapKeysToIds, envelopeValue, mapPianoKeyPress, buttonStyles } from '../utils/helperFunctions';
+import { display, types, animateInst, paperStyle, keys, notes, octaves, pd, showErrorMessage, mapIdsToKeys, mapKeysToIds, envelopeValue, mapPianoKeyPress, buttonStyles } from '../utils/helperFunctions';
 
 class UserMakeInstrument extends Component {
 
@@ -133,7 +133,7 @@ class UserMakeInstrument extends Component {
       if (keysForInst[i].length === 1) {
         empty = false;
       }
-    }//
+    }
 
     if (!name.length) {
       showErrorMessage("#nameInstErrMessage", 'Pls name your instrument', 'npo');
@@ -142,13 +142,10 @@ class UserMakeInstrument extends Component {
     } else if (/\W/.test(name)===true) {
       showErrorMessage("#nameInstErrMessage", 'Letters and numbers only please!', 'regexErr');
     } else {
-      this.setState({
-        inMemObject: {}
-      });
-      empty = true;
-      console.log('llll', currentInMemObj.userName);
+      this.setState({inMemObject: {}});
       this.props.socket.emit('newInstCreated', currentInMemObj);
-      console.log(`youve created ${currentInMemObj} (in stringified form) as opposed to`, this.props.userInstruments);
+
+      console.log(`youve created ${currentInMemObj} as opposed to`, this.props.userInstruments);
       const final = this.props.userInstruments.concat([currentInMemObj]);
       this.props.updateUserInstrument(final);
       showErrorMessage("#nameInstErrMessage", 'Instrument Made!', 'makeThat');
@@ -273,9 +270,7 @@ class UserMakeInstrument extends Component {
                 autoWidth={false}
               >
 
-              {octaves.map(num => (
-                <MenuItem key={num} value={num} primaryText={num} />
-                ))}
+              {display(octaves)}
 
               </DropDownMenu>
 

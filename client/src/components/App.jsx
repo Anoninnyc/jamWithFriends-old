@@ -35,15 +35,6 @@ class App extends Component {
         this.logIn(resp[0], resp[1]);
       }
     });
-
-    // $.get("/fbLoggedIn", (response, err) => {
-    //   if (response !== "false") {
-    //     console.log(response[0], typeof response[0], 'here!!!');
-    //     this.logIn(response[0], response[1]);
-    //   } else {
-    //     console.log('not logged to fb');
-    //   }
-    // });
   }
 
   updateUserInstrument(totalInstruments) {
