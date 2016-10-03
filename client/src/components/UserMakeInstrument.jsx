@@ -124,7 +124,8 @@ class UserMakeInstrument extends Component {
     const name = this.refs.instName.getValue();
     const currentInMemObj = this.state.inMemObject;
     currentInMemObj.instrumentName = name;
-    currentInMemObj.userName = this.props.user;
+    currentInMemObj.userName = JSON.parse(this.props.user);
+    console.log(this.props.user, JSON.parse(this.props.user))
     let empty = true;
 
     const keysForInst = Object.keys(currentInMemObj);
@@ -145,7 +146,7 @@ class UserMakeInstrument extends Component {
         inMemObject: {}
       });
       empty = true;
-      this.props.socket.emit('newInstCreated', currentInMemObj);//
+      this.props.socket.emit('newInstCreated', currentInMemObj);
       console.log(`youve created ${currentInMemObj} (in stringified form) as opposed to`, this.props.userInstruments);
       const final = this.props.userInstruments.concat([currentInMemObj]);
       this.props.updateUserInstrument(final);
