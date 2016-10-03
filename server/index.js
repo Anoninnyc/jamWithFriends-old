@@ -283,8 +283,11 @@ app.get('/logout', (req, res) => {
 });
 
 app.get("/makeInstrument",(req,res)=>{
-  res.redirect("/login");
-})
+  let passport=req.session.passport?req.session.passport.user:req.session.passport;
+  if (passport===undefined && req.session.userName===undefined) {
+    res.redirect("/login");
+  }
+});
 
 
 app.post('/login', (req, res) => {
