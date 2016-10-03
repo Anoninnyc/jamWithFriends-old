@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import {MenuItem, DropDownMenu} from 'material-ui/MenuItem';
+import MenuItem from 'material-ui/MenuItem';
+import DropDownMenu from 'material-ui/DropDownMenu'
 
 
 
