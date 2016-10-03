@@ -56,11 +56,11 @@ const fbConfig = {
 };
 
 passport.use(new FacebookStrategy(fbConfig, (accessToken, refreshToken, profile, done) => {
-  console.log('this is the profile', profile);
+  //console.log('this is the profile', profile);
   users.findAll({ where: { facebookId: profile.id } })
     .then(user => {
       if (user.length > 0) {
-        console.log('user already exists', user[0]);
+        //console.log('user already exists', user[0]);
         return done(null, user);
       } else {
         return users.create({
@@ -365,7 +365,7 @@ app.get("/getUserInfo", (req, res) => {
 
   if (req.session.passport) {
     users.findOne({ where: { id: person.user } }).then(fbUser => {
-      console.log('uh oh ', fbUser);
+      //console.log('uh oh ', fbUser);
       const fbUserName= fbUser.dataValues.userName;
       instruments.findAll({ where: { userName: fbUserName } }).then(
         userInstruments => (
