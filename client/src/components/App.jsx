@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log("component did moujnnnn")
     $.get("/getUserInfo", (resp, err) => {
      console.log('this the the resp to userloggedintomakeinst', resp);
       if (resp[0] === null) {
@@ -69,6 +70,9 @@ class App extends Component {
   }
 
   render() {
+
+        console.log("component did moujnnnn render")
+
     const children = React.Children.map(this.props.children, child => (
        React.cloneElement(child, {
          loggedIn: this.state.loggedIn,
