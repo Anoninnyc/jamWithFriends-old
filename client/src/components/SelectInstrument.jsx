@@ -38,7 +38,7 @@ const SelectInstrument = ({ handleSelect, handleClick, size, ownInstrument, extr
     console.log('There was an error.  Own instrument is undefined');
   }
 
-  console.log('extraInstruments', extraInstruments);
+ // console.log('extraInstruments', extraInstruments);
   return (
     <div style={{ textAlign: "center" }}>
       <Carousel

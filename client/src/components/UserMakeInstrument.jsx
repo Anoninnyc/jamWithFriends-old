@@ -46,7 +46,7 @@ class UserMakeInstrument extends Component {
 
 
   componentWillMount() {
-    
+
      $.get("/isLoggedIn", (resp, err) => {
       if (resp==="continue"){
         console.log('you should be here!!!')
@@ -146,7 +146,7 @@ class UserMakeInstrument extends Component {
       });
       empty = true;
       this.props.socket.emit('newInstCreated', currentInMemObj);
-      console.log(`youve created ${currentInMemObj}`);
+      console.log(`youve created ${JSON.stringify(currentInMemObj)} (ins stringified form) as opposed to`, this.props.userInstruments);
       const final = this.props.userInstruments.concat([currentInMemObj]);
       this.props.updateUserInstrument(final);
       showErrorMessage("#nameInstErrMessage", 'Instrument Made!', 'makeThat');
