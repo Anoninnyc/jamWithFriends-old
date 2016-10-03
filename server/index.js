@@ -371,7 +371,7 @@ app.get("/getUserInfo", (req, res) => {
         userInstruments => (
            userInstruments.map(a => a.dataValues)
         )).then(userInstrumentsList => {
-          console.log(person, userInstrumentsList, 'userInsts');
+          //console.log(person, userInstrumentsList, 'userInsts');
           res.status(200).send([person, userInstrumentsList]);
         });
     });
@@ -380,7 +380,7 @@ app.get("/getUserInfo", (req, res) => {
         userInstruments => (
            userInstruments.map(a => a.dataValues)
         )).then(userInstrumentsList => {
-          console.log(person, userInstrumentsList, 'userInsts');
+          //console.log(person, userInstrumentsList, 'userInsts');
           res.status(200).send([person, userInstrumentsList]);
         });
   }
