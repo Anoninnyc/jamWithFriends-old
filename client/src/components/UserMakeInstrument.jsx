@@ -125,7 +125,8 @@ class UserMakeInstrument extends Component {
     const currentInMemObj = this.state.inMemObject;
     currentInMemObj.instrumentName = name;
     currentInMemObj.userName = JSON.parse(this.props.user);
-    console.log(this.props.user, JSON.parse(this.props.user))
+    console.log(this.props.user)
+    console.log(JSON.parse(this.props.user))
     let empty = true;
 
     const keysForInst = Object.keys(currentInMemObj);
@@ -133,7 +134,7 @@ class UserMakeInstrument extends Component {
       if (keysForInst[i].length === 1) {
         empty = false;
       }
-    }
+    }//
 
     if (!name.length) {
       showErrorMessage("#nameInstErrMessage", 'Pls name your instrument', 'npo');

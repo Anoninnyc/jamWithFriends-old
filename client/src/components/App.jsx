@@ -27,13 +27,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log("component did moujnnnn")
     $.get("/getUserInfo", (resp, err) => {
      console.log('this the the resp to userloggedintomakeinst', resp);
       if (resp[0] === null) {
      // console.log('youre not logged in!');
       } else {
-        this.logIn(JSON.stringify(resp[0]), resp[1]);
+        this.logIn(resp[0], resp[1]);
       }
     });
 
@@ -71,7 +70,6 @@ class App extends Component {
 
   render() {
 
-        console.log("component did moujnnnn render")
 
     const children = React.Children.map(this.props.children, child => (
        React.cloneElement(child, {
@@ -85,7 +83,7 @@ class App extends Component {
        })
     ));
     return (
-      <div style={{ width: '50%', height: '50%' }}>
+      <div style={{ width: '100%', height: '100%' }}>
         <Nav userInstruments={this.state.userInstruments} logIn={this.logIn} logOut={this.logOut} user={this.state.user} loggedIn={this.state.loggedIn} title={'tbd'} />
        {
           this.props.children ?
