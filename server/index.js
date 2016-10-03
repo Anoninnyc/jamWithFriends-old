@@ -405,35 +405,38 @@ let passport=req.session.passport!==undefined?req.session.passport.user:req.sess
 
 
 
-app.get("/fbLoggedIn", (req, res) => {
-  console.log("****************************** req.session.passport FROM fbLoggedIn");
-  if (req.session.passport) {
-      console.log("req.session.passport line FROM fbLoggedIn");
+// app.get("/fbLoggedIn", (req, res) => {
+//   console.log("****************************** req.session.passport FROM fbLoggedIn");
+//   if (req.session.passport) {
+//       console.log("req.session.passport line FROM fbLoggedIn");
 
-    console.log('rsp', req.session.passport);
-    users.findOne({
-      where: {
-        id: req.session.passport.user
-      }
-    }).then(
-      people => {
-        const person = people.dataValues.userName;
-        instruments.findAll({
-          where: {
-            userName: person
-          }
-        }).then(
-          userInstruments => (
-            userInstruments.map(a => a.dataValues)
-          )).then(userInstrumentsList => {
-            res.status(200).send([person, userInstrumentsList]);
-          });
-      });
-  } else {
-    console.log('false line ***********************')
-    res.send("false");
-  }
-});
+//     console.log('rsp', req.session.passport);
+//     users.findOne({
+//       where: {
+//         id: req.session.passport.user
+//       }
+//     }).then(
+//       people => {
+//         const person = people.dataValues.userName;
+//         instruments.findAll({
+//           where: {
+//             userName: person
+//           }
+//         }).then(
+//           userInstruments => (
+//             userInstruments.map(a => a.dataValues)
+//           )).then(userInstrumentsList => {
+//             res.status(200).send([person, userInstrumentsList]);
+//           });
+//       });
+//   } else {
+//     console.log('false line ***********************')
+//     res.send("false");
+//   }
+// });
+
+
+
 
 app.post('/makeprivateroom', (req, res) => {
   if (!req.session.userName && !req.session.passport) {

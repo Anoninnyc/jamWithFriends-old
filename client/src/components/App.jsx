@@ -36,14 +36,14 @@ class App extends Component {
       }
     });
 
-    $.get("/fbLoggedIn", (response, err) => {
-      if (response !== "false") {
-        console.log(response[0], typeof response[0], 'here!!!');
-        this.logIn(response[0], response[1]);
-      } else {
-        console.log('not logged to fb');
-      }
-    });
+    // $.get("/fbLoggedIn", (response, err) => {
+    //   if (response !== "false") {
+    //     console.log(response[0], typeof response[0], 'here!!!');
+    //     this.logIn(response[0], response[1]);
+    //   } else {
+    //     console.log('not logged to fb');
+    //   }
+    // });
   }
 
   updateUserInstrument(totalInstruments) {
