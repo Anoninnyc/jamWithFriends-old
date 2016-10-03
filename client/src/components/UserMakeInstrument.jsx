@@ -53,6 +53,12 @@ class UserMakeInstrument extends Component {
         this.context.router.push("login");
       }
     });
+
+     $.get("/isLoggedIn", (resp, err) => {
+      console.log('this the the resp to isloggedIn', resp);
+      
+    });
+
   }
 
   componentWillUnmount() {

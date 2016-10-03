@@ -385,6 +385,9 @@ app.get("/getUserInfo", (req, res) => {
         });
   }
 });
+app.get('/isLoggedIn', (req,res)=>{
+  res.send(req.session);
+})
 
 app.get("/fbLoggedIn", (req, res) => {
   if (req.session.passport) {
