@@ -360,32 +360,6 @@ app.get('/auth/facebook/callback',
   })
 );
 
-app.get("/getUserInfo", (req, res) => {
-  const person=req.session.userName||req.session.passport;
-  console.log("person:",person,"req.session:", req.session);
-let passport=req.session.passport!==undefined?req.session.passport.user:req.session.passport;
-  if (passport) {
-    users.findOne({ where: { id: person.user } }).then(fbUser => {
-      console.log('tryingtoFind', fbUser);
-      const fbUserName= fbUser.dataValues.userName;
-      instruments.findAll({ where: { userName: fbUserName } }).then(
-        userInstruments => (
-           userInstruments.map(a => a.dataValues)
-        )).then(userInstrumentsList => {
-          //console.log(person, userInstrumentsList, 'userInsts');
-          res.status(200).send([person, userInstrumentsList]);
-        });
-    });
-  } else {
-    instruments.findAll({ where: { userName: person } }).then(
-        userInstruments => (
-           userInstruments.map(a => a.dataValues)
-        )).then(userInstrumentsList => {
-          //console.log(person, userInstrumentsList, 'userInsts');
-          res.status(200).send([person, userInstrumentsList]);
-        });
-  }
-});
 
 app.get('/isLoggedIn', (req,res)=> {
 console.log(req.session, "REQ.SESSION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
@@ -399,9 +373,43 @@ let passport=req.session.passport?req.session.passport.user:req.session.passport
   }
 })
 
+app.get("/getUserInfo", (req, res) => {
+  const person=req.session.userName||req.session.passport;
+  console.log("person:",person,"req.session:", req.session);
+let passport=req.session.passport!==undefined?req.session.passport.user:req.session.passport;
+  if (passport) {
+    console.log(" *************************passport statement line FROM getuserINFO");
+
+    users.findOne({ where: { id: person.user } }).then(fbUser => {
+      console.log('tryingtoFind', fbUser);
+      const fbUserName= fbUser.dataValues.userName;
+      instruments.findAll({ where: { userName: fbUserName } }).then(
+        userInstruments => (
+           userInstruments.map(a => a.dataValues)
+        )).then(userInstrumentsList => {
+          //console.log(person, userInstrumentsList, 'userInsts');
+          res.status(200).send([person, userInstrumentsList]);
+        });
+    });
+  } else {
+    console.log(" *************************else statement line FROM getuserINFO");
+    instruments.findAll({ where: { userName: person } }).then(
+        userInstruments => (
+           userInstruments.map(a => a.dataValues)
+        )).then(userInstrumentsList => {
+          //console.log(person, userInstrumentsList, 'userInsts');
+          res.status(200).send([person, userInstrumentsList]);
+        });
+  }
+});
+
+
+
 app.get("/fbLoggedIn", (req, res) => {
   console.log("****************************** req.session.passport FROM fbLoggedIn");
   if (req.session.passport) {
+      console.log("req.session.passport line FROM fbLoggedIn");
+
     console.log('rsp', req.session.passport);
     users.findOne({
       where: {
@@ -422,6 +430,7 @@ app.get("/fbLoggedIn", (req, res) => {
           });
       });
   } else {
+    console.log('false line ***********************')
     res.send("false");
   }
 });
