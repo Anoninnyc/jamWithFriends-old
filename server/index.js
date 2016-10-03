@@ -392,7 +392,12 @@ if (req.session.passport.user===undefined && req.session.userName===undefined){
 });
 
 app.get('/isLoggedIn', (req,res)=>{
-  res.send(req.session);
+  if (req.session.passport.user===undefined && req.session.userName===undefined){
+    console.log('*********************** this person should not be able to acces UMI');
+    res.send(null);
+  } else {
+    res.send("continue");
+  }
 })
 
 app.get("/fbLoggedIn", (req, res) => {
