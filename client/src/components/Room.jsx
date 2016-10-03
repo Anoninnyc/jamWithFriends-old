@@ -185,19 +185,7 @@ class Room extends React.Component {
     console.log("logging this to reduce parsing!",this.props.userInstruments);
     // this.setState({ instrument: instruments[index] });
     this.setState({
-      mapping: this.props.userInstruments.map(a => (
-        {
-          A: typeof a === 'string'?JSON.parse(a.A): a.A,
-          S: typeof a === 'string'?JSON.parse(a.S): a.S,
-          D: typeof a === 'string'?JSON.parse(a.D): a.D,
-          F: typeof a === 'string'?JSON.parse(a.F): a.F,
-          G: typeof a === 'string'?JSON.parse(a.G): a.G,
-          H: typeof a === 'string'?JSON.parse(a.H): a.H,
-          J: typeof a === 'string'?JSON.parse(a.J): a.J,
-          K: typeof a === 'string'?JSON.parse(a.K): a.K,
-          L: typeof a === 'string'?JSON.parse(a.L): a.L,
-        }
-      ))[index - 3],
+      mapping: this.props.userInstruments[index - 3],
       instrument: instruments.concat(this.props.userInstruments.map(a => (
          `Your Instrument: ${a.instrumentName||a.name}`
       )))[index]
