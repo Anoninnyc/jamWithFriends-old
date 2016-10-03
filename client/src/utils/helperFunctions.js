@@ -169,8 +169,8 @@ function display(par){
   return par.map(
     type => (
       <MenuItem key={type} value={type} primaryText={type} /> 
+    )
   )
-)
 
 }
 

@@ -184,6 +184,7 @@ class UserMakeInstrument extends Component {
     console.log(value);
     this.setState({ octaveValue: value });
   }
+  
   handleTypeChange(event, index, value) {
     console.log(value);
     this.setState({ typeValue: value });
@@ -244,9 +245,7 @@ class UserMakeInstrument extends Component {
               onChange={this.handleKeyChange}
               autoWidth={false}
             >
-              {keys.map(key => (
-                <MenuItem key={key} value={key} primaryText={key} />
-                ))}
+              {display(keys)}
             </DropDownMenu>
             <div id="deleteKey"> <RaisedButton label="Delete Key Mapping" onClick={this.deleteKey} /></div>
             <h2 className="step">Step Two: Set Your Parameters</h2>
@@ -258,9 +257,7 @@ class UserMakeInstrument extends Component {
                 onChange={this.handleNoteChange}
                 autoWidth={false}
               >
-              {notes.map(note => (
-                <MenuItem key={note} value={note} primaryText={note} />
-                ))}
+              {display(notes)}
               </DropDownMenu>
 
             Octave
@@ -269,17 +266,17 @@ class UserMakeInstrument extends Component {
                 onChange={this.handleOctaveChange}
                 autoWidth={false}
               >
-
-              {octaves.map(num => (
-                <MenuItem key={num} value={num} primaryText={num} />
-                ))}
-
+              {display(octaves)}
               </DropDownMenu>
 
             Pitch Decay
-
-           {display(pd,'PD')}
-
+              <DropDownMenu
+                value={this.state.PDValue}
+                onChange={this.handlePDChange}
+                autoWidth={false}
+              >
+              {display(pd)}
+              </DropDownMenu>
 
             Sound Type
               <DropDownMenu
@@ -287,9 +284,7 @@ class UserMakeInstrument extends Component {
                 onChange={this.handleTypeChange}
                 autoWidth={false}
               >
-              {types.map(type => (
-                <MenuItem key={type} value={type} primaryText={type} />
-                ))}
+              {display(types)}
               </DropDownMenu>
 
             </div> <br /><br />
@@ -314,8 +309,6 @@ class UserMakeInstrument extends Component {
             </Link>
             </div>
             
-           
-           
             <h2 className="step">Click your instrument to play!</h2>
             <div id="testPiano" onClick={this.addKeypress} >
               <UserOwnInstrument />
