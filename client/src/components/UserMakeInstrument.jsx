@@ -13,7 +13,7 @@ import UserOwnInstrument from './UserOwnInstrument';
 
 
 // Utils
-import { display, types, animateInst, paperStyle, keys, notes, octaves, pd, showErrorMessage, mapIdsToKeys, mapKeysToIds, envelopeValue, mapPianoKeyPress, buttonStyles } from '../utils/helperFunctions';
+import { display,types, animateInst, paperStyle, keys, notes, octaves, pd, showErrorMessage, mapIdsToKeys, mapKeysToIds, envelopeValue, mapPianoKeyPress, buttonStyles } from '../utils/helperFunctions';
 
 class UserMakeInstrument extends Component {
 
@@ -270,22 +270,26 @@ class UserMakeInstrument extends Component {
                 autoWidth={false}
               >
 
-              {display(octaves)}
-
-              </DropDownMenu>
-
-            Pitch Decay
-              <DropDownMenu
-                value={this.state.PDValue}
-                onChange={this.handlePDChange}
-                autoWidth={false}
-              >
-
-              {pd.map(num => (
+              {octaves.map(num => (
                 <MenuItem key={num} value={num} primaryText={num} />
                 ))}
 
               </DropDownMenu>
+
+            Pitch Decay
+
+            {display(pd,'PD')}
+              // <DropDownMenu
+              //   value={this.state.PDValue}
+              //   onChange={this.handlePDChange}
+              //   autoWidth={false}
+              // >
+
+              // {pd.map(num => (
+              //   <MenuItem key={num} value={num} primaryText={num} />
+              //   ))}
+
+              // </DropDownMenu>
 
             Sound Type
               <DropDownMenu

@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import MenuItem from 'material-ui/MenuItem';
+import {MenuItem, DropDownMenu} from 'material-ui/MenuItem';
+
 
 
 // Utils!
@@ -164,13 +165,23 @@ const pd = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7];
 const types = ["sine", "square", "sawtooth", "triangle"];
 
 
-function display(par){
+function display(par,pari){
 
-  return par.map(
+  return (
+    <DropDownMenu
+      value={this.state[pari+'Value']}
+      onChange={this['handle'+pari+'Change']}
+      autoWidth={false}
+    >
+
+    par.map(
     type => (
       <MenuItem key={type} value={type} primaryText={type} />
      )
   )
+
+  </DropDownMenu>
+)
 
 }
 
