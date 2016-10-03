@@ -383,12 +383,13 @@ let passport=req.session.passport!==undefined?req.session.passport.user:req.sess
     users.findOne({ where: { id: person.user } }).then(fbUser => {
       //console.log('tryingtoFind', fbUser);
       const fbUserName= fbUser.dataValues.userName;
+      console.log("this is the user we're trying to find instruments for", fbUserName);
       instruments.findAll({ where: { userName: fbUserName } }).then(
         userInstruments => (
            userInstruments.map(a => a.dataValues)
         )).then(userInstrumentsList => {
           //console.log(person, userInstrumentsList, 'userInsts');
-          res.status(200).send([person, userInstrumentsList]);
+          res.status(200).send([fbUserName, userInstrumentsList]);
         });
     });
   } else {

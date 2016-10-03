@@ -28,7 +28,7 @@ class App extends Component {
 
   componentWillMount() {
     $.get("/getUserInfo", (resp, err) => {
-    // console.log('this the the resp to userloggedintomakeinst', resp);
+     console.log('this the the resp to userloggedintomakeinst', resp);
       if (resp[0] === null) {
      // console.log('youre not logged in!');
       } else {
