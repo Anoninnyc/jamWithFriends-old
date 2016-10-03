@@ -48,7 +48,7 @@ class AppNavBar extends Component {
             />
           }
         >
-        <div id="menuHeader"> TITLE HERE!</div>
+        <div id="menuHeader">Menu</div>
         </AppBar>
       </div>
     ); }

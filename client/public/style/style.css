@@ -697,3 +697,14 @@ section.createRoom {
 img.defImages {
   width: 100%;
 }
+
+div#menuHeader {
+  /* left: 100px; */
+  /* left: 100%; */
+  position: relative;
+  right: 80px;
+  top: 16px;
+  /* font-weight: bold; */
+  font-size: 24px;
+  color: rgb(232, 174, 183);
+}
