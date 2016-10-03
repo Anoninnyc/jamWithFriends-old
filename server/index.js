@@ -361,11 +361,7 @@ app.get('/auth/facebook/callback',
 
 app.get("/getUserInfo", (req, res) => {
   const person=req.session.userName||req.session.passport;
-  console.log("person:",person,"req.session:", req.session,"req.session.passport:", req.session.passport,"req.session.user:",req.session.user, 'person!!!');
-
-if (req.session.passport.user===undefined && req.session.userName===undefined){
-  res.send([null]);
-}
+  console.log("person:",person,"req.session:", req.session);
 
   if (req.session.passport.user) {
     users.findOne({ where: { id: person.user } }).then(fbUser => {
