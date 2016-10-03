@@ -81,7 +81,7 @@ passport.use(new FacebookStrategy(fbConfig, (accessToken, refreshToken, profile,
 // serialize and deserialize
 passport.serializeUser((user, done) => {
   const final = typeof user==="number"?user:user[0].dataValues.id;
-  console.log('this is the user param serializing', user);
+  //console.log('this is the user param serializing', user);
   done(null, final);
 });
 
@@ -90,7 +90,7 @@ passport.deserializeUser((id, done) => {
   users.findAll({ where: { id } })
     .then(found => {
       const values = found[0].dataValues;
-      console.log('Trying to "deserialize" this user', values);
+      //console.log('Trying to "deserialize" this user', values);
       done(null, id);
     });
 });
