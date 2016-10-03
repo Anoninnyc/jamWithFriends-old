@@ -282,6 +282,10 @@ app.get('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+app.get("/something",(req,res)=>{
+  res.redirect("/login");
+})
+
 
 app.post('/login', (req, res) => {
   console.log('req.body.pass', req.body.pass);
