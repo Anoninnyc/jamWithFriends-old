@@ -146,7 +146,7 @@ class UserMakeInstrument extends Component {
       });
       empty = true;
       this.props.socket.emit('newInstCreated', currentInMemObj);
-      console.log(`youve created ${JSON.parse(currentInMemObj)} (ins stringified form) as opposed to`, this.props.userInstruments);
+      console.log(`youve created ${currentInMemObj} (in stringified form) as opposed to`, this.props.userInstruments);
       const final = this.props.userInstruments.concat([currentInMemObj]);
       this.props.updateUserInstrument(final);
       showErrorMessage("#nameInstErrMessage", 'Instrument Made!', 'makeThat');
