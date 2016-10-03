@@ -47,7 +47,9 @@ class AppNavBar extends Component {
               FBAuth={this.FBAuth}
             />
           }
-        />
+        >
+        TITLE HERE!
+        </AppBar>
       </div>
     ); }
   }
