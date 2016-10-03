@@ -388,16 +388,17 @@ app.get("/getUserInfo", (req, res) => {
 
 app.get('/isLoggedIn', (req,res)=>{
 console.log(req.session, "REQ.SESSION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-  if (req.session.passport===undefined && req.session.userName===undefined){
-
+  if (req.session.passport.user===undefined && req.session.userName===undefined){
     console.log('*********************** this person should not be able to acces UMI');
     res.send(null);
   } else {
+    console.log('*********************** this person should NOT be able to acces UMI');
     res.send("continue");
   }
 })
 
 app.get("/fbLoggedIn", (req, res) => {
+  console.log("****************************** req.session.passport FROM fbLoggedIn");
   if (req.session.passport) {
     console.log('rsp', req.session.passport);
     users.findOne({
@@ -419,7 +420,7 @@ app.get("/fbLoggedIn", (req, res) => {
           });
       });
   } else {
-    res.status(401).send("false");
+    res.send("false");
   }
 });
 
