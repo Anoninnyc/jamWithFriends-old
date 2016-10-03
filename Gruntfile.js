@@ -10,12 +10,8 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      addWatchAndDeploy: {
-        command: mess => ['webpack','grunt uglify' , 'git add .', 'git commit -m' + mess, 'git push heroku master -f'].join('&&')
-      }
       addAndDeploy: {
         command: mess => ['grunt uglify' , 'git add .', 'git commit -m' + mess, 'git push heroku master -f'].join('&&')
-
       }
     },
   });
