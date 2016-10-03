@@ -278,18 +278,8 @@ class UserMakeInstrument extends Component {
 
             Pitch Decay
 
-            {display(pd,'PD')}
-              // <DropDownMenu
-              //   value={this.state.PDValue}
-              //   onChange={this.handlePDChange}
-              //   autoWidth={false}
-              // >
+           {display(pd,'PD')}
 
-              // {pd.map(num => (
-              //   <MenuItem key={num} value={num} primaryText={num} />
-              //   ))}
-
-              // </DropDownMenu>
 
             Sound Type
               <DropDownMenu
