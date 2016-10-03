@@ -13,6 +13,10 @@ const expressSession=require('express-session');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 require("dotenv").config();
+///////////////////////////////////////////
+const renderToString= require('react-dom/server').renderToString;
+const match= require('react-router').match;
+const RouterContext= require('react-router').RouterContext;
 
 /* Init */
 const app = express();
