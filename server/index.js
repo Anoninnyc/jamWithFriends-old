@@ -286,6 +286,8 @@ app.get("/makeInstrument",(req,res)=>{
   let passport=req.session.passport?req.session.passport.user:req.session.passport;
   if (passport===undefined && req.session.userName===undefined) {
     res.redirect("/login");
+  } else {
+    res.end();
   }
 });
 
