@@ -24,8 +24,8 @@ class AppNavBar extends Component {
 
 
   render() {
-    // console.log('tpu', this.props.userInstruments);
-    return (
+    
+    return (//
       <div className="nav">
         <AppBar
           showMenuIconButton={false}
