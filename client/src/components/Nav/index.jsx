@@ -22,12 +22,7 @@ class AppNavBar extends Component {
     });
   }
 
-  // this is written so that passport can do auth and not throw a react warning
-  FBAuth(e) {
-    e.preventDefault();
-    const linkTag = $('<a href="/auth/facebook"></a>');
-    linkTag[0].click();
-  }
+
 
   render() {
     // console.log('tpu', this.props.userInstruments);
@@ -44,7 +39,6 @@ class AppNavBar extends Component {
               id="menuicon"
               loggedIn={this.props.loggedIn}
               clearSessions={this.clearSessions}
-              FBAuth={this.FBAuth}
             />
           }
         >

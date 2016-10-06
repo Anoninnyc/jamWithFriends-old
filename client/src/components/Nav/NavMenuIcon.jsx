@@ -37,10 +37,6 @@ const NavMenuIcon = ({ loggedIn, FBAuth, clearSessions }) => (
           primaryText="Sign up"
           containerElement={<Link to="/signup" />}
         />
-        <MenuItem
-          primaryText="LI with facebook"
-          onClick={FBAuth}
-        />
       </div>
     :
       <div>
