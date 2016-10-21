@@ -1,5 +1,4 @@
 module.exports = grunt => {
-
   grunt.initConfig({
     uglify: {
       my_target: {
@@ -20,7 +19,7 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-shell');
 
 
-  //grunt shell:addAndDeploy:Message_Here
+  // grunt shell:addAndDeploy:Message_Here
 
   grunt.registerTask('testGrunt', () => {
     console.log('testing grunt!');

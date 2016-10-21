@@ -70,7 +70,6 @@ class Room extends React.Component {
 
   handleKeypress(e) {
     if (store[this.state.instrument]) {
-      console.log('e.key', e.key);
       store[this.state.instrument](e.key);
 
       const keyBlack=e.key.toUpperCase();
@@ -106,7 +105,7 @@ class Room extends React.Component {
 
       const zimit = new MembraneSynth(config).toMaster();
       zimit.triggerAttackRelease(combo, '8n');
-      console.log('e info', e.which, e.key);
+      // console.log('e info', e.which, e.key);
 
       const keyBlack=e.key.toUpperCase();
 
@@ -126,12 +125,12 @@ class Room extends React.Component {
   handleStart() {
     this.setState({ startJam: true });
     connectionManager.onMessage(data => {
-      console.log('data!!', data);
+     // console.log('data!!', data);
       data = JSON.parse(data);
       if (store[data.instrument]) {
         data.instrument==='drums'?store.drums(data.idToPlay):store[data.instrument](data.keyPressed);
       } else {
-        console.log('received the following!', data.notesToPlay);
+       // console.log('received the following!', data.notesToPlay);
         const info = data.notesToPlay;
         const combo = info[0];
         const config = soundConfig(info[2], info[1]);
@@ -190,7 +189,7 @@ class Room extends React.Component {
          `Your Instrument: ${a.instrumentName||a.name}`
       )))[index]
     });
-    //console.log(instruments[index]);
+    // console.log(instruments[index]);
     if (this.state.connected) {
       this.props.socket.emit('select instrument', {
         roomId: this.props.params.roomId,
@@ -204,7 +203,7 @@ class Room extends React.Component {
 
   render() {
     const uiNames=this.props.userInstruments.map(a => (a.instrumentName));
-    //console.log('what you want', uiNames, 'tsi', 'current instrument', this.state.instrument);
+    // console.log('what you want', uiNames, 'tsi', 'current instrument', this.state.instrument);
 
     return (
       <div>
