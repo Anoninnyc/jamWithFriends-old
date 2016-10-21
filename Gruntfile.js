@@ -1,7 +1,7 @@
-module.exports = function(grunt) {
+module.exports = grunt => {
 
   grunt.initConfig({
-      uglify: {
+    uglify: {
       my_target: {
         files: {
           'client/public/minBundle.js': ['client/public/bundle.js'],
@@ -11,20 +11,18 @@ module.exports = function(grunt) {
 
     shell: {
       addAndDeploy: {
-        command: mess => ['grunt uglify' , 'git add .', 'git commit -m' + mess, 'git push heroku master -f'].join('&&')
+        command: mess => ['grunt uglify', 'git add .', 'git commit -m' + mess, 'git push heroku master -f'].join('&&')
       }
     },
   });
 
-  grunt.loadNpmTasks('grunt-contrib-uglify')
-  grunt.loadNpmTasks('grunt-shell')
-  
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-shell');
+
 
   //grunt shell:addAndDeploy:Message_Here
 
   grunt.registerTask('testGrunt', () => {
-    console.log('testing grunt!')
-  })
-
-
-}
+    console.log('testing grunt!');
+  });
+};

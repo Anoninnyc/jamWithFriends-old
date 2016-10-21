@@ -151,7 +151,7 @@ const mapDrumIDToSounds = {
 
 const drumParts=["urC", "nextC", "brDrum", "rsDrum", "lsDrum", "tomDrum", "urCymbal", "kickDrum"];
 
-// UserMakeInstrument Reference 
+// UserMakeInstrument Reference
 
 const keys = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
 
@@ -164,15 +164,14 @@ const pd = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7];
 const types = ["sine", "square", "sawtooth", "triangle"];
 
 
-function display(par){
+function display(par) {
 
   return par.map(
     type => (
-      <MenuItem key={type} value={type} primaryText={type} /> 
+      <MenuItem key={type} value={type} primaryText={type} />
     )
-  )
-
-}
+  );
+};
 
 // paperStyle
 const paperStyle = {
@@ -183,7 +182,6 @@ const paperStyle = {
 
 
 const animateInst = (ID, color1, color2, ms) => {
-  console.log('runHelper');
   $(ID).animate({
     backgroundColor: color1,
   }, ms).animate({
@@ -192,7 +190,6 @@ const animateInst = (ID, color1, color2, ms) => {
 };
 
 
-// for 
 
 
 module.exports = {

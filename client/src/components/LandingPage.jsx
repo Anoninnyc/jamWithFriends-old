@@ -15,7 +15,7 @@ const paperStyle = {
   position: 'absolute',
   left: '50%',
   height: '40%',
-  width: '40%' ,
+  width: '40%',
   transform: 'translate(-50%, 40%)',
   backgroundColor: 'rgba(68, 69, 69, 0.7)',
   borderRadius: 10
@@ -24,7 +24,8 @@ const paperStyle = {
 const LandingPage = () => (
   <div id="landingPage">
     <Paper style={paperStyle} zDepth={3}>
-      <div className="greeting">Welcome to</div><br/>
+      <div className="greeting">Welcome to</div>
+      <br />
       <div id="appName"> Jam with Friends! </div>
       <p id="explainer">Jam out with your friends using virtual instruments over a lightnight-fast WebRTC connection.</p>
       <section className="divider">
