@@ -14,6 +14,11 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 require("dotenv").config();
 
+setInterval(() => {
+  http.get("http://jamwithfriends.herokuapp.com/");
+  console.log("*************PINGED!!**********");
+}, 300000);
+
 /* Init */
 const app = express();
 const server = http.createServer(app);
@@ -292,7 +297,7 @@ app.post('/login', (req, res) => {
   }).then(person => {
     if (person[0]===undefined) {
       console.log('BadLogin');
-      res.status(401).send("");
+      res.send("");
     } else {
       //console.log(person[0], 'Person[0]!!!');
       const hash = bcrypt.hashSync(req.body.pass, person[0].dataValues.salt);
@@ -318,7 +323,7 @@ app.post('/login', (req, res) => {
             });
         } else {
           console.log('BadLogin');
-          res.status(401).send("");
+          res.send("");
         }
       });
     }
