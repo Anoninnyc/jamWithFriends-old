@@ -46,8 +46,9 @@ app.use(express.static(pathToStaticDir/*, {maxAge:"1d"}*/));
 app.use(express.static(pathToStaticDir, { redirect: false }));
 //
 /* Auth */
+console.log(`*************${process.env.Sessions_Secret}**********`);
 app.use(expressSession({
-  secret: 'keyboardCat',
+  secret: process.env.Sessions_Secret,
   resave: true,
   saveUninitialized: true
 }));
@@ -55,8 +56,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const fbConfig = {
-  clientID: '1014211832028342',
-  clientSecret: 'ac6ae8a72885b86270805337f66e83e6',
+  clientID: process.env.Client_Id,
+  clientSecret: process.env.Client_Secret,
   callbackURL: 'https://jamwithfriends.herokuapp.com/auth/facebook/callback'
 };
 
