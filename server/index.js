@@ -216,7 +216,7 @@ io.on('connection', socket => {
         }
       }
     }
-  });
+  }); 
 
   socket.on('offer', offer => {
     console.log("I'm getting this offer", offer);
