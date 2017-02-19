@@ -222,13 +222,14 @@ io.on('connection', socket => {
     console.log("I'm getting this offer", offer);
     io.to(`/#${offer.to}`).emit('offer', offer);
     io.to(`${offer.to}`).emit('offer', offer);
-    io.to(`offer.by`).emit('offer', offer);
     io.to(`${offer.by}`).emit('offer', offer);
   });
 
   socket.on('answer', answer => {
     console.log("I'm giving this answer", answer);
     io.to(`/#${answer.to}`).emit('answer', answer);
+    io.to(`${answer.to}`).emit('answer', answer);
+    io.to(`${answer.by}`).emit('answer', answer);
   });
 
   socket.on('newInstCreated', instrument => {
