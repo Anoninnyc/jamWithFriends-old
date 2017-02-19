@@ -130,7 +130,7 @@ io.on('connection', socket => {
   });
 
   socket.on('join', roomId => {
-    console.log(socket.id, 'joining', roomId);
+    console.log("socket.id", socket.id, 'JOINING!', "roomId:", roomId, "Rooms", rooms);
     // does room exist?
     if (!rooms[roomId]) {
       io.to(socket.id).emit('invalid room');
@@ -140,7 +140,7 @@ io.on('connection', socket => {
     } else {
       socket.join(roomId);
       rooms[roomId].push({ peerId: socket.id.slice(2), instrument: 'piano' });
-      console.log('room is', rooms[roomId]);
+      console.log('room is succ and is...', rooms[roomId], "allRooms", rooms);
 
       // update open rooms table
       io.emit('give rooms info', getRoomsInfo(rooms));
@@ -149,8 +149,10 @@ io.on('connection', socket => {
       io.to(socket.id).emit('joined', JSON.stringify(rooms[roomId]));
       // emit message to other sockets in room
       socket.broadcast.to(roomId).emit('new peer');
+      console.log('room is succ and is...', rooms[roomId], "allRooms", rooms);
 
       socket.on('disconnect', () => {
+        console.log("**********DISCONNECTING!**********", "rooms:",rooms,"roomId",roomId);
         const socketsInRoom = rooms[roomId];
         const id = socket.id.slice(2);
         // check to make sure peer is in room and get index of peer
