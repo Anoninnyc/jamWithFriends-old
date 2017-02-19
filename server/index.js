@@ -139,7 +139,7 @@ io.on('connection', socket => {
       socket.emit('full', roomId);
     } else {
       socket.join(roomId);
-      rooms[roomId].push({ peerId: socket.id.slice(2), instrument: 'piano' });
+      rooms[roomId].push({ peerId: socket.id, instrument: 'piano' });
       console.log('room is succ and is...', rooms[roomId], "allRooms", rooms);
 
       // update open rooms table
@@ -155,7 +155,7 @@ io.on('connection', socket => {
       socket.on('disconnect', () => {
         console.log("**********DISCONNECTING!**********", "rooms:", rooms, "roomId", roomId);
         const socketsInRoom = rooms[roomId];
-        const id = socket.id.slice(2);
+        const id = socket.id;
         // check to make sure peer is in room and get index of peer
         for (var i = 0; i < socketsInRoom.length; i++) {
           if (socketsInRoom[i].peerId === id) {

@@ -79,7 +79,7 @@ export default function (room) {
   /* ------------ Helper functions ------------ */
 
   function startConnection(sockets, number) {
-    console.log("running startConnection function and this is socket:",socket);
+    console.log("running startConnection function and this is socket:", socket);
     const peer = new SimplePeer(Object.assign(options, { initiator: true }));
     const remote = sockets[number].peerId;
     peer.on('signal', data => {
