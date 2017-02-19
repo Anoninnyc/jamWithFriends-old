@@ -102,7 +102,7 @@ passport.deserializeUser((id, done) => {
 
 /* Sockets */
 // rooms for peer connection sockets
- rooms = {};
+ let rooms = {};
 // keep track of private rooms
 const privRooms = {};
 // map actual rooms to another room which contains peer info sockets
