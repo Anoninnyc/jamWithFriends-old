@@ -122,14 +122,17 @@ export default function (room) {
     let remote;
 
     socket.on('offer', data => {
+      console.log("this offer", data);
       // bad fix for preventing signalling multiple times and with destroyed connections
       if (data.to === selfId && !peer.connected && !peer.destroyed) {
         remote = data.by;
+        console.log("going to signal");
         peer.signal(data.offer);
       }
     });
 
     peer.on('signal', data => {
+      console.log("signaling", data);
       socket.emit('answer', { answer: data, by: socket.id, to: remote });
     });
 
