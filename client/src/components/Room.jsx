@@ -33,6 +33,7 @@ class Room extends React.Component {
   }
 
   componentDidMount() {
+    console.log("I should run to indicate being setup");
     connectionManager.setup(this.props.params.roomId);
     connectionManager.onStatusChange(this.updateConnection);
     console.log("tpui",this.props.userInstruments);
@@ -84,6 +85,7 @@ class Room extends React.Component {
 
 
       if (this.state.startJam) {
+        console.log("sending something!");
         connectionManager.sendMessage(JSON.stringify({
           instrument: this.state.instrument,
           keyPressed: e.key,
@@ -125,7 +127,7 @@ class Room extends React.Component {
   handleStart() {
     this.setState({ startJam: true });
     connectionManager.onMessage(data => {
-     // console.log('data!!', data);
+      console.log('data recieved!!', data);
       data = JSON.parse(data);
       if (store[data.instrument]) {
         data.instrument==='drums'?store.drums(data.idToPlay):store[data.instrument](data.keyPressed);

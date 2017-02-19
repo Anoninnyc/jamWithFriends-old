@@ -102,7 +102,7 @@ passport.deserializeUser((id, done) => {
 
 /* Sockets */
 // rooms for peer connection sockets
- let rooms = {};
+const rooms = {};
 // keep track of private rooms
 const privRooms = {};
 // map actual rooms to another room which contains peer info sockets
@@ -192,7 +192,7 @@ io.on('connection', socket => {
           socket.leave(data.roomId);
           console.log(rooms[data.roomId]);
           socket.broadcast.to(data.roomId).emit('remove connection', data.id);
-          console.log("Again, here are the rooms!",rooms);
+          console.log("Again, here are the rooms!", rooms);
           // delete room if empty
           if (room.length === 0) {
             console.log("the last peer in room left!");
