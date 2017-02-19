@@ -184,7 +184,7 @@ class Room extends React.Component {
   }
 
   selectInstrument(index) {
-    console.log("logging this to reduce parsing!",this.props.userInstruments);
+    console.log("logging this to reduce parsing!", this.props.userInstruments);
     // this.setState({ instrument: instruments[index] });
     this.setState({
       mapping: this.props.userInstruments[index - 3],
