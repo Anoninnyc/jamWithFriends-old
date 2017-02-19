@@ -156,6 +156,9 @@ io.on('connection', socket => {
         console.log("**********DISCONNECTING!**********", "rooms:", rooms, "roomId", roomId);
         const socketsInRoom = rooms[roomId];
         const id = socket.id;
+        if (!socketsInRoom){
+          return;
+        }
         // check to make sure peer is in room and get index of peer
         for (var i = 0; i < socketsInRoom.length; i++) {
           if (socketsInRoom[i].peerId === id) {
@@ -216,7 +219,7 @@ io.on('connection', socket => {
         }
       }
     }
-  }); 
+  });
 
   socket.on('offer', offer => {
     console.log("I'm getting this offer", offer);
