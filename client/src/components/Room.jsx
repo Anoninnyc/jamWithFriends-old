@@ -33,11 +33,10 @@ class Room extends React.Component {
   }
 
   componentDidMount() {
-    console.log("I should run to indicate being setup");
+   // console.log("I should run to indicate being setup");
     connectionManager.setup(this.props.params.roomId);
     connectionManager.onStatusChange(this.updateConnection);
-    console.log("tpui", this.props.userInstruments);
-    console.log("below tpui");
+   // console.log("tpui", this.props.userInstruments);
     // this will update uniue user instruments with those made in the same session.
     // event listener for keypress
     window.addEventListener('keypress', this.handleKeypress);
@@ -86,7 +85,7 @@ class Room extends React.Component {
 
 
       if (this.state.startJam) {
-        console.log("sending something!");
+       // console.log("sending something!");
         connectionManager.sendMessage(JSON.stringify({
           instrument: this.state.instrument,
           keyPressed: e.key,
@@ -115,7 +114,7 @@ class Room extends React.Component {
       animateInst(mapKeysToIds[keyBlack], "black", "white", 20);
 
       if (this.state.startJam) {
-        console.log('gonna send them keyInfo');
+       // console.log('gonna send keyInfo');
         connectionManager.sendMessage(JSON.stringify({
           instrument: this.state.instrument,
           keyPressed: e.key,

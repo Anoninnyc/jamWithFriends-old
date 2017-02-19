@@ -167,9 +167,9 @@ class CreateOrJoin extends Component {
     // send server the roomname.  Username is taken from session
     $.post('/makeprivateroom', { roomName }, (res) => {
       if (res !== 'OK') {
-        console.log(res);
+        // console.log(res);
       } else {
-        console.log('SUCCESS!!!');
+        // console.log('SUCCESS!!!');
         const data = {
           roomId: roomName,
           isPrivate: true,
@@ -247,7 +247,7 @@ class CreateOrJoin extends Component {
         radioButtonVal: 'public',
         showMustBeLoggedIn: true,
       });
-      console.log('You must be logged in, dingus');
+      console.log('You must be logged in');
     } else if (value === 'public') {
       this.setState({
         togglePrivateRoom: false,
