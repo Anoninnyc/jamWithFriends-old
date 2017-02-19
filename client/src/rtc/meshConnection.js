@@ -30,6 +30,7 @@ export default function (room) {
     selfId = sockets.pop().peerId;
     // if first one in room, done
     if (sockets.length === 0) {
+      console.log("first in room");
       emitter.emit('connected');
     } else {
       startConnection(sockets, 0);
@@ -76,6 +77,7 @@ export default function (room) {
   /* ------------ Helper functions ------------ */
 
   function startConnection(sockets, number) {
+    console.log("running startConnection function");
     const peer = new SimplePeer(Object.assign(options, { initiator: true }));
     const remote = sockets[number].peerId;
     peer.on('signal', data => {
@@ -90,6 +92,7 @@ export default function (room) {
     });
 
     peer.on('connect', () => {
+      console.log('peer.on(connect');
       peers[remote] = peer;
       if (number < sockets.length - 1) {
         startConnection(sockets, ++number, selfId);
