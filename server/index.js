@@ -149,6 +149,7 @@ io.on('connection', socket => {
       io.to(socket.id).emit('joined', JSON.stringify(rooms[roomId]));
       // emit message to other sockets in room
       socket.broadcast.to(roomId).emit('new peer');
+
       console.log('room is succ and is...', rooms[roomId], "allRooms", rooms);
 
       socket.on('disconnect', () => {
@@ -182,7 +183,7 @@ io.on('connection', socket => {
 
   socket.on('exit room', data => {
     const room = rooms[data.roomId];
-    console.log("EXITING ROOM","All rooms", rooms,"room",room);
+    console.log("EXITING ROOM", "All rooms", rooms, "room", room);
     if (room !== undefined) {
       // check to make sure peer is in room and get index of peer
       for (var i = 0; i < room.length; i++) {
@@ -218,10 +219,12 @@ io.on('connection', socket => {
   });
 
   socket.on('offer', offer => {
+    console.log("I'm getting this offer",offer);
     io.to(`/#${offer.to}`).emit('offer', offer);
   });
 
   socket.on('answer', answer => {
+    console.log("I'm giving this answer", answer);
     io.to(`/#${answer.to}`).emit('answer', answer);
   });
 

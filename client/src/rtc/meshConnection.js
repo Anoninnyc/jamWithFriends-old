@@ -33,12 +33,14 @@ export default function (room) {
       console.log("first in room");
       emitter.emit('connected');
     } else {
+      console.log("not first in room");
       startConnection(sockets, 0);
     }
   });
 
   // new socket joined, receive the connection
   socket.on('new peer', () => {
+    console.log("recieve connection");
     receiveConnection();
   });
 
@@ -100,6 +102,15 @@ export default function (room) {
         emitter.emit('connected');
       }
     });
+     peer.on('connection', () => {
+      console.log('peer.on(connect');
+      peers[remote] = peer;
+      if (number < sockets.length - 1) {
+        startConnection(sockets, ++number, selfId);
+      } else {
+        emitter.emit('connected');
+      }
+    });
 
     peer.on('data', message => {
       emitter.emit('message', message);
@@ -123,6 +134,7 @@ export default function (room) {
     });
 
     peer.on('connect', () => {
+      console.log('second peer on connect');
       peers[remote] = peer;
     });
 
