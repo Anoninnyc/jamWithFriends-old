@@ -245,6 +245,7 @@ io.on('connection', socket => {
   socket.on('get rooms info', id => {
     // send info to populate creaorjoin open room table
     io.to(`/#${id}`).emit('give rooms info', getRoomsInfo(rooms));
+    io.to(`${id}`).emit('give rooms info', getRoomsInfo(rooms));
   });
 
   // add this socket as listener to a room mapped from client room
