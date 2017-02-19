@@ -83,7 +83,7 @@ export default function (room) {
     const peer = new SimplePeer(Object.assign(options, { initiator: true }));
     const remote = sockets[number].peerId;
     peer.on('signal', data => {
-      console.log("I'm sending the offer!", socket.id);
+      console.log("I'm sending the offer!", socket.id, "here is data:", data);
       socket.emit('offer', { offer: data, by: socket.id, to: remote });
     });
 

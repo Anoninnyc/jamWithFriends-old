@@ -219,8 +219,11 @@ io.on('connection', socket => {
   });
 
   socket.on('offer', offer => {
-    console.log("I'm getting this offer",offer);
+    console.log("I'm getting this offer", offer);
     io.to(`/#${offer.to}`).emit('offer', offer);
+    io.to(`${offer.to}`).emit('offer', offer);
+    io.to(`offer.by`).emit('offer', offer);
+    io.to(`${offer.by}`).emit('offer', offer);
   });
 
   socket.on('answer', answer => {
