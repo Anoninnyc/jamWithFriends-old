@@ -120,6 +120,7 @@ export default function (room) {
   function receiveConnection() {
     const peer = new SimplePeer(Object.assign(options, { initiator: false }));
     let remote;
+    console.log("recieve connection and this is socket:", socket);
 
     socket.on('offer', data => {
       console.log("this offer", data);
