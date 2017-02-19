@@ -1,7 +1,7 @@
 .DS_STORE
 
 # sensitive info
-.env*
+
 
 # Logs
 logs
