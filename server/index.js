@@ -181,24 +181,27 @@ io.on('connection', socket => {
   });
 
   socket.on('exit room', data => {
-    console.log("EXITING ROOM");
     const room = rooms[data.roomId];
+    console.log("EXITING ROOM","All rooms", rooms,"room",room);
     if (room !== undefined) {
       // check to make sure peer is in room and get index of peer
       for (var i = 0; i < room.length; i++) {
         if (room[i].peerId === data.id) {
+          console.log("SPLICING!!");
           room.splice(i, 1);
           socket.leave(data.roomId);
           console.log(rooms[data.roomId]);
           socket.broadcast.to(data.roomId).emit('remove connection', data.id);
-
+          console.log("Again, here are the rooms!",rooms);
           // delete room if empty
           if (room.length === 0) {
+            console.log("the last peer in room left!");
             delete rooms[data.roomId];
             delete listenerRooms[data.roomId];
             delete privRooms[data.roomId];
           } else {
             // give updated list of peer info
+            console.log("one peer left, some remain");
             io.to(listenerRooms[data.roomId]).emit('receive peer info', JSON.stringify(room));
           }
           // update open rooms table
@@ -206,6 +209,7 @@ io.on('connection', socket => {
 
           // disconnect socket, client will create new socket when it starts
           // peer connection process again
+          console.log("were now going to disconnect, and here are rooms", rooms);
           socket.disconnect(0);
           break;
         }
