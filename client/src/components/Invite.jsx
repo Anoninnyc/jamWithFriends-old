@@ -7,6 +7,10 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
+const email = (address) => {
+  window.open(`mailto:someone@example.com?subject=Let's jam!&body= Join here: ${address}!`);
+};
+
 
 const Invite = ({ open, onRequestClose }) => (
   <Dialog
@@ -22,6 +26,7 @@ const Invite = ({ open, onRequestClose }) => (
     >
       <FlatButton label="Copy" />
     </CopyToClipboard>
+    <a onClick = {( )=> email(window.location.href)}><FlatButton label="Mail!" /></a>
   </Dialog>
 );
 
