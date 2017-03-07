@@ -189,6 +189,20 @@ const animateInst = (ID, color1, color2, ms) => {
   }, ms);
 };
 
+const isLoggedIn = (x, replace, callback) => {
+  $.get("/isLoggedIn", (resp, err) => {
+      console.log(resp, err);
+      if (resp === "continue") {
+        console.log('Executing cb');
+        callback();
+      } else {
+        console.log('Need to be logged in!');
+        location.replace('/login');
+      }
+    })
+};
+
+
 
 
 
@@ -215,4 +229,5 @@ module.exports = {
   types,
   buttonStyles,
   display,
+  isLoggedIn,
 };
