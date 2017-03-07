@@ -224,14 +224,14 @@ class UserMakeInstrument extends Component {
     this.setState({
       instrument: inst
     });
-  }
+  }  
 
   render() {
     return (
       <div id="roomContainer">
         <div id="UserMakeInstrumentRoom">
           <Paper
-            id="uMIPaper"
+            id="UMIPaper"
             style={paperStyle}
             zDepth={3}
           >
