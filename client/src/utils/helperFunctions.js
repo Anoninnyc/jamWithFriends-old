@@ -199,7 +199,7 @@ const isLoggedIn = (x, replace, callback) => {
         console.log('Need to be logged in!');
         location.replace('/login');
       }
-    })
+    });
 };
 
 
