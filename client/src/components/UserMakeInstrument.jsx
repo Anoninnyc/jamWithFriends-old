@@ -240,7 +240,6 @@ class UserMakeInstrument extends Component {
             <Divider />
             <h2 className="step">Step One: Select a Key To Map To </h2>
             <DropDownMenu
-              id="stepOneMenu"
               value={this.state.keyValue}
               onChange={this.handleKeyChange}
               autoWidth={false}

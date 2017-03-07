@@ -576,14 +576,6 @@ input:invalid {
   text-align: center;
 }
 
-#testPiano {
-  position:relative;
-  top:30%;
-  text-align:center;
- }
- 
- 
-
  #UserMakeInstrumentRoom {
   position:static;
   top:30%;
@@ -615,13 +607,6 @@ input:invalid {
   text-align:center;
 }
 
-
-div#deleteKey {
-  left: 140px;
-  top: -35px;
-  text-align:center;
-}
-
 text#step3 {
   font-size: 150%;
   font-weight: bold;
@@ -639,26 +624,12 @@ text#step3 {
   left: 65px;
 }
 
-.step {
-  position: relative;
-  text-align: center;
-}
-
 #UMIHeader{
-  text-align: center;
   margin:0 auto;
   color:#E18335;
   font-size: 32px;
 }
 
-#stepOneMenu{
- text-align: center;
- left: 300px;
-}
-
-#instNames, #UMIParams, #s3c, #mapSToKey {
-  text-align: center;
-}
 
 #loginContent{
   position: absolute;
