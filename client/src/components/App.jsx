@@ -78,7 +78,7 @@ class App extends Component {
         <Nav userInstruments={this.state.userInstruments} logIn={this.logIn} logOut={this.logOut} user={this.state.user} loggedIn={this.state.loggedIn} title={'tbd'} />
        {
           this.props.children ?
-            <section className="child">
+            <section className='child'>
               {children}
             </section> :
             null

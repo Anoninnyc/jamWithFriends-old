@@ -646,12 +646,9 @@ text#step3 {
   left: 35%;
 }
 
-
-
-
 p#explainer {
   font-weight: bold;
-  color: orangered;
+  color: #ffffff;
 }
 
 div#appName {
@@ -670,12 +667,9 @@ img.defImages {
 }
 
 div#menuHeader {
-  /* left: 100px; */
-  /* left: 100%; */
   position: relative;
   right: 80px;
   top: 16px;
-  /* font-weight: bold; */
   font-size: 24px;
   color: rgb(232, 174, 183);
 }
